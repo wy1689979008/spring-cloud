@@ -1,5 +1,6 @@
 package com.example.springcloudeurekaclient.controller;
 
+import com.example.springcloudeurekaclient.service.FeignService;
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +14,14 @@ public class test {
 
     @Autowired
     private EurekaClient discoveryClient;
+    @Autowired
+    private FeignService feignService;
 
     @ResponseBody
     @RequestMapping("/aaa")
     public String serviceUrl() {
-        InstanceInfo instance = discoveryClient.getNextServerFromEureka("server1", false);
-        return instance.getHomePageUrl();
+        String s = feignService.FeignServoce();
+        System.out.println(s);
+        return s;
     }
 }

@@ -1,4 +1,10 @@
+
 spring:
   cloud:
     zookeeper:
       connect-string: localhost:2181
+      discovery:
+        enabled: false
+
+#server:
+#  port: 2181

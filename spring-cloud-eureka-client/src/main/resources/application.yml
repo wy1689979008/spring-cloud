@@ -1,11 +1,17 @@
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://server1:8761/eureka/
+
+
 spring:
   application:
     name: eurekaClient
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+
+
+
 server:
   port: 8090
   servlet:
     context-path: /eurekaClient
+
